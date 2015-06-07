@@ -7,7 +7,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{A609A74A-D753-4ED9-BB95-E79C5EE8219D}</ProjectGuid>
+    <ProjectGuid>{431E4D18-2F42-4D3D-A275-E5F7CB88A731}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -19,7 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
-    <NuGetPackageImportStamp>cd6ba1d7</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>ff483ac4</NuGetPackageImportStamp>
     <ApplicationInsightsResourceId>/subscriptions/3db862ad-d421-49cb-b264-d6263bb48928/resourcegroups/Default-ApplicationInsights-CentralUS/providers/microsoft.insights/components/SelfOrdering.Api</ApplicationInsightsResourceId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -113,6 +113,7 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config" />
+    <None Include="Properties\PublishProfiles\SelfOrderingApi.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -138,7 +139,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>27620</DevelopmentServerPort>
+          <DevelopmentServerPort>21284</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:21072/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
