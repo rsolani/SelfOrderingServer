@@ -9,7 +9,7 @@ var Microsoft;
         var LoggingSeverity = ApplicationInsights.LoggingSeverity;
         var _InternalLogging = (function () {
             function _InternalLogging() {
-            }
+            } 
             /**
              * This method will throw exceptions in debug mode or attempt to log the error as a console warning.
              */
