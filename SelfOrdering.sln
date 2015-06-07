@@ -16,6 +16,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configura
 		PublishScripts\Configurations\SelfOrderingApi-WAWS-dev.json = PublishScripts\Configurations\SelfOrderingApi-WAWS-dev.json
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "99 - Other", "99 - Other", "{02B6EC93-6D58-4F8E-8167-8839059798F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Presentation", "0 - Presentation", "{56B00BD4-DCBC-4DF1-9BF8-098BFBFE0373}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{97567AD6-F8C1-455C-B4C7-3DB823264750}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - ApplicationServices", "1 - ApplicationServices", "{EB7310AC-4637-4D43-B176-B9C297915660}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{32A80AE0-AD5F-4F06-855B-8513C37D857F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{3F98CF57-271E-49F6-A4C5-E5BC132FC26B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "98 - CrossCutting", "98 - CrossCutting", "{0EE577A9-BA6C-44F1-A0CE-513E48753E5A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +45,9 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{431E4D18-2F42-4D3D-A275-E5F7CB88A731} = {97567AD6-F8C1-455C-B4C7-3DB823264750}
+		{64DF2E5C-2A79-4F82-9715-EA05A71C7BAB} = {02B6EC93-6D58-4F8E-8167-8839059798F9}
 		{29414937-CB56-463A-A864-E539C7F734C7} = {64DF2E5C-2A79-4F82-9715-EA05A71C7BAB}
+		{97567AD6-F8C1-455C-B4C7-3DB823264750} = {56B00BD4-DCBC-4DF1-9BF8-098BFBFE0373}
 	EndGlobalSection
 EndGlobal

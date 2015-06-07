@@ -114,6 +114,9 @@
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config" />
     <None Include="Properties\PublishProfiles\SelfOrderingApi.pubxml" />
+    <Content Include="scripts\ai.0.15.0-build12287.min.js.map">
+      <DependentUpon>ai.0.15.0-build12287.min.js</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
