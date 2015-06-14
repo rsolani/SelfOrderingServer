@@ -1,8 +1,11 @@
-﻿using System;
+﻿using System.Net.Http.Headers;
 using System.Web.Http;
 using Microsoft.Owin;
 using Microsoft.Owin.Cors;
-using Microsoft.Owin.Security.OAuth;
+using Ninject;
+using Ninject.Web.Common.OwinHost;
+using Ninject.Web.WebApi;
+using Ninject.Web.WebApi.OwinHost;
 using Owin;
 using SelfOrdering.Api;
 
@@ -13,17 +16,26 @@ namespace SelfOrdering.Api
     public class Startup
     {
         public void Configuration(IAppBuilder app)
-        {
+        {   
             HttpConfiguration config = new HttpConfiguration();
 
             ConfigureWebApi(config);
             app.UseCors(CorsOptions.AllowAll);
-            ConfigureOAuth(app);
-            
+            app.UseNinjectMiddleware(CreateKernel).UseNinjectWebApi(config);
+        }
+
+        private static StandardKernel CreateKernel()
+        {
+            var kernel = new StandardKernel(new NinjectSettings());
+            kernel.Load("SelfOrdering.*.dll");
+            GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);
+            return kernel;
         }
 
         private static void ConfigureWebApi(HttpConfiguration config)
         {
+            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
+            
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
@@ -31,22 +43,6 @@ namespace SelfOrdering.Api
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-        }
-
-        private static void ConfigureOAuth(IAppBuilder app)
-        {
-            OAuthAuthorizationServerOptions oAuthServerOptions = new OAuthAuthorizationServerOptions
-            {
-                AllowInsecureHttp = true,
-                TokenEndpointPath = new PathString("/token"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(20),
-                Provider = new AuthorizationServerProvider()
-            };
-
-            app.UseOAuthAuthorizationServer(oAuthServerOptions);
-            app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
-
-           
         }
     }
 }

@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SelfOrdering.Domain")]
+[assembly: AssemblyTitle("SelfOrdering.Ioc")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SelfOrdering.Domain")]
+[assembly: AssemblyProduct("SelfOrdering.Ioc")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("33d3f2ea-39c8-4946-a412-e350d46361bb")]
+[assembly: Guid("7db0bdf3-739f-48ec-856c-373321dace57")]
 
 // Version information for an assembly consists of the following four values:
 //
