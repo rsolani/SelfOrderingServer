@@ -205,13 +205,13 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SelfOrdering.ApplicationServices\SelfOrdering.ApplicationServices.csproj">
+      <Project>{C4533193-681D-4DCC-AEEC-DAB887E68F06}</Project>
+      <Name>SelfOrdering.ApplicationServices</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SelfOrdering.Domain\SelfOrdering.Domain.csproj">
       <Project>{36769174-7442-4cd2-bab1-3b7492b2b76f}</Project>
       <Name>SelfOrdering.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SelfOrdering.MobileApplicationServices\SelfOrdering.ApplicationServices.csproj">
-      <Project>{c4533193-681d-4dcc-aeec-dab887e68f06}</Project>
-      <Name>SelfOrdering.ApplicationServices</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

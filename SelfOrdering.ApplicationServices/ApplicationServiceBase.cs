@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using SelfOrdering.ApplicationServices.Contracts;
 using SelfOrdering.Domain.Contracts;
 using SelfOrdering.Domain.Contracts.Services;
 
-namespace SelfOrdering.ApplicationServices.Contracts
+namespace SelfOrdering.ApplicationServices
 {
     public class ApplicationServiceBase<T> : IApplicationService<T> where T : IMongoEntity 
     {

@@ -47,6 +47,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SelfOrdering.ApplicationServices\SelfOrdering.ApplicationServices.csproj">
+      <Project>{C4533193-681D-4DCC-AEEC-DAB887E68F06}</Project>
+      <Name>SelfOrdering.ApplicationServices</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SelfOrdering.CrossCutting\SelfOrdering.CrossCutting.csproj">
       <Project>{6c148c44-df47-4571-9ec8-9b2960d4aa38}</Project>
       <Name>SelfOrdering.CrossCutting</Name>
@@ -58,10 +62,6 @@
     <ProjectReference Include="..\SelfOrdering.Infra.Data\SelfOrdering.Infra.Data.csproj">
       <Project>{2f07fcc7-0390-4ca4-a296-a0f14ba578cb}</Project>
       <Name>SelfOrdering.Infra.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SelfOrdering.MobileApplicationServices\SelfOrdering.ApplicationServices.csproj">
-      <Project>{c4533193-681d-4dcc-aeec-dab887e68f06}</Project>
-      <Name>SelfOrdering.ApplicationServices</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
