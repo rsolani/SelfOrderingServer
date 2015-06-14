@@ -1,0 +1,48 @@
+﻿using System.Net.Http.Headers;
+using System.Web.Http;
+using Microsoft.Owin;
+using Microsoft.Owin.Cors;
+using Ninject;
+using Ninject.Web.Common.OwinHost;
+using Ninject.Web.WebApi;
+using Ninject.Web.WebApi.OwinHost;
+using Owin;
+using SelfOrdering.Api;
+
+[assembly: OwinStartup(typeof(Startup))]
+
+namespace SelfOrdering.Api
+{
+    public class Startup
+    {
+        public void Configuration(IAppBuilder app)
+        {   
+            HttpConfiguration config = new HttpConfiguration();
+
+            ConfigureWebApi(config);
+            app.UseCors(CorsOptions.AllowAll);
+            app.UseNinjectMiddleware(CreateKernel).UseNinjectWebApi(config);
+        }
+
+        private static StandardKernel CreateKernel()
+        {
+            var kernel = new StandardKernel(new NinjectSettings());
+            kernel.Load("SelfOrdering.*.dll");
+            GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);
+            return kernel;
+        }
+
+        private static void ConfigureWebApi(HttpConfiguration config)
+        {
+            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
+            
+            config.MapHttpAttributeRoutes();
+
+            config.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "api/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
+        }
+    }
+}
