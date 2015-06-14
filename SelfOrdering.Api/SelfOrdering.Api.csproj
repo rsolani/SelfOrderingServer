@@ -209,9 +209,9 @@
       <Project>{36769174-7442-4cd2-bab1-3b7492b2b76f}</Project>
       <Name>SelfOrdering.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SelfOrdering.Ioc\SelfOrdering.IoC.csproj">
+    <ProjectReference Include="..\SelfOrdering.Ioc\SelfOrdering.Infra.IoC.csproj">
       <Project>{9742ad37-f8b3-401c-93f2-f1b1e0da4b76}</Project>
-      <Name>SelfOrdering.IoC</Name>
+      <Name>SelfOrdering.Infra.IoC</Name>
     </ProjectReference>
     <ProjectReference Include="..\SelfOrdering.MobileApplicationServices\SelfOrdering.ApplicationServices.csproj">
       <Project>{c4533193-681d-4dcc-aeec-dab887e68f06}</Project>

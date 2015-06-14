@@ -2,7 +2,7 @@
 using SelfOrdering.ApplicationServices;
 using SelfOrdering.ApplicationServices.Contracts;
 
-namespace SelfOrdering.IoC
+namespace SelfOrdering.Infra.IoC
 {
     public class ApplicationServiceBindings : NinjectModule
     {

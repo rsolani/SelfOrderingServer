@@ -5,7 +5,7 @@ using SelfOrdering.Domain.Models;
 using SelfOrdering.Domain.Services;
 using SelfOrdering.Infra.Data.Repositories;
 
-namespace SelfOrdering.IoC
+namespace SelfOrdering.Infra.IoC
 {
     public class DomainBindings : NinjectModule
     {

@@ -7,8 +7,8 @@
     <ProjectGuid>{9742AD37-F8B3-401C-93F2-F1B1E0DA4B76}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SelfOrdering.IoC</RootNamespace>
-    <AssemblyName>SelfOrdering.IoC</AssemblyName>
+    <RootNamespace>SelfOrdering.Infra.IoC</RootNamespace>
+    <AssemblyName>SelfOrdering.Infra.IoC</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
