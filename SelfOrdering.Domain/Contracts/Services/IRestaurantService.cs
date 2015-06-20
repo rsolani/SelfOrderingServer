@@ -1,8 +1,6 @@
-﻿using SelfOrdering.Domain.Models;
-
-namespace SelfOrdering.Domain.Contracts.Services
+﻿namespace SelfOrdering.Domain.Contracts.Services
 {
-    public interface IRestaurantService : IDomainService<Restaurant>
+    public interface IRestaurantService : IDomainService<Restaurant.Restaurant>
     {
         
     }

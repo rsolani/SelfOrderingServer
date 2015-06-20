@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SelfOrdering.Domain.Models
+namespace SelfOrdering.Domain.Restaurant
 {
     public class Menu : MongoEntityBase
     {

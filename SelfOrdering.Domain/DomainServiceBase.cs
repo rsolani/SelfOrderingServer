@@ -1,24 +1,24 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using MongoDB.Bson;
-using SelfOrdering.ApplicationServices.Contracts;
+using MongoDB.Driver;
 using SelfOrdering.Domain.Contracts;
 using SelfOrdering.Domain.Contracts.Repositories;
 using SelfOrdering.Domain.Contracts.Services;
 
-namespace SelfOrdering.ApplicationServices
+namespace SelfOrdering.Domain
 {
-    public abstract class ApplicationServiceBase<T> : IApplicationService<T> where T : IMongoEntity, IAggregateRoot
+    public class DomainServiceBase<T> : IDomainService<T> where T : IMongoEntity, IAggregateRoot
     {
-
         protected IBaseRepository<T> Repository;
-        protected IDomainService<T> DomainService;
+        protected FilterDefinitionBuilder<T> FilterBuilder;
+        protected UpdateDefinitionBuilder<T> UpdateBuilder;
 
-
-        public ApplicationServiceBase(IBaseRepository<T> repository, IDomainService<T> domainService)
+        public DomainServiceBase(IBaseRepository<T> repository)
         {
             Repository = repository;
-            DomainService = domainService;
+            FilterBuilder = new FilterDefinitionBuilder<T>();
+            UpdateBuilder = new UpdateDefinitionBuilder<T>();
         }
 
         public async Task<IEnumerable<T>> GetAll()

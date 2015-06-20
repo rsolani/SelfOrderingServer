@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MongoDB.Bson, Version=2.0.1.27, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MongoDB.Bson.2.0.1\lib\net45\MongoDB.Bson.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,9 +49,9 @@
     <Compile Include="DTO\MenuItemDTO.cs" />
     <Compile Include="DTO\MenuSectionDTO.cs" />
     <Compile Include="DTO\RestaurantDTO.cs" />
-    <Compile Include="RestaurantApplicationService.cs" />
     <Compile Include="Contracts\IApplicationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Restaurant\RestaurantApplicationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SelfOrdering.Domain\SelfOrdering.Domain.csproj">

@@ -1,6 +1,8 @@
-﻿using System.Threading;
-using SelfOrdering.Domain.Models;
-using SelfOrdering.Infra.Data.Repositories;
+﻿using System.Linq;
+using System.Threading;
+using MongoDB.Bson;
+using SelfOrdering.Domain.Restaurant;
+using SelfOrdering.Infra.Data;
 
 namespace Tests
 {
@@ -11,19 +13,33 @@ namespace Tests
 
         static void Main()
         {
-            Insert();
+            //Insert();
+            TestReplace();
             resetEvent.WaitOne(); // Blocks until "set"
         }
-        
+
+        static async void TestReplace()
+        {
+
+            var repo = new BaseRepository<Restaurant>();
+            var service = new RestaurantService(repo);
+
+            var rest = await repo.GetByIdAsync(new ObjectId("557fa6a15775cb036c79d477"));
+            var table = await service.GetTable(rest.Id, rest.Tables.Where(x => x.Number == "11").FirstOrDefault().Id);
+            
+            await service.SetTableOccupation(rest.Id, table.Id, true);
+
+        }
+
 
         static async void Insert()
         {
             var rest = BuildRestaurant();
 
-            var repo = new RestaurantRepository();
-            await repo.Insert(rest);
+            var repo = new BaseRepository<Restaurant>();
+            await repo.InsertAsync(rest);
 
-            var x = await repo.Get();
+            var x = await repo.GetAllAsync();
 
         }
 
@@ -67,6 +83,11 @@ namespace Tests
             bebidas.SubSections.Add(sucos);
 
             rest.Menu.MenuSections.Add(bebidas);
+            
+            rest.Tables.Add(new Table("1"));
+            rest.Tables.Add(new Table("2"));
+            rest.Tables.Add(new Table("3"));
+            rest.Tables.Add(new Table("4"));
 
             return rest;
 

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using SelfOrdering.Domain.Models;
+using SelfOrdering.Domain;
 
 namespace SelfOrdering.ApplicationServices.DTO
 {

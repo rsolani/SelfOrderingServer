@@ -2,7 +2,7 @@
 using MongoDB.Bson.Serialization.Attributes;
 using SelfOrdering.Domain.Contracts;
 
-namespace SelfOrdering.Domain.Models
+namespace SelfOrdering.Domain
 {
     public class MongoEntityBase : IMongoEntity
     {

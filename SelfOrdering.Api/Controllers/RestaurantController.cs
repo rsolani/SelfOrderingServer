@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using MongoDB.Bson;
 using SelfOrdering.ApplicationServices.Contracts;
 
 namespace SelfOrdering.Api.Controllers
@@ -32,11 +33,11 @@ namespace SelfOrdering.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<HttpResponseMessage> GetById(int id)
+        public async Task<HttpResponseMessage> Get(string id)
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, await _applicationService.GetAll());
+                return Request.CreateResponse(HttpStatusCode.OK, await _applicationService.GetById(new ObjectId(id)));
             }
             catch (Exception ex)
             {

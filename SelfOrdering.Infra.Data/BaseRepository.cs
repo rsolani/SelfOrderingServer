@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -7,41 +9,53 @@ using SelfOrdering.Domain.Contracts.Repositories;
 
 namespace SelfOrdering.Infra.Data
 {
-    public abstract class BaseRepository<T> : IBaseRepository<T> where T : IMongoEntity
+    public  class BaseRepository<T> : IBaseRepository<T> where T : IMongoEntity, IAggregateRoot
     {
         protected readonly DbContext<T> BaseConnectionHandler;
         
-        protected BaseRepository()
+        public BaseRepository()
         {
             BaseConnectionHandler = new DbContext<T>(); 
         }
 
-        public async Task<T> Get(ObjectId id)
+        public async Task<T> GetByIdAsync(ObjectId id)
         {
             var filter = Builders<T>.Filter.Eq(x => x.Id, id);
             return await this.BaseConnectionHandler.Collection.Find(filter).FirstOrDefaultAsync();
         }
 
-        public async Task<IList<T>> Get()
+        public async Task<IList<T>> GetAllAsync()
         {
             return await this.BaseConnectionHandler.Collection.Find(new BsonDocument()).ToListAsync();
         }
+
+        public async Task<IList<T>> GetByFilterAsync(Expression<Func<T, bool>> expression)
+        {
+            return await this.BaseConnectionHandler.Collection.Find(expression).ToListAsync();
+        }
+
         
-        public async Task Insert(T entity)
+        public async Task InsertAsync(T entity)
         {
             await this.BaseConnectionHandler.Collection.InsertOneAsync(entity);
         }
 
-        public async Task Update(T entity)
+        public async Task<UpdateResult> UpdateAsync(FilterDefinition<T> filterDefinition, UpdateDefinition<T> updateDefinition)
         {
-            var filter = Builders<T>.Filter.Eq(x => x.Id, entity.Id);
-            await this.BaseConnectionHandler.Collection.ReplaceOneAsync(filter, entity);
+            return await this.BaseConnectionHandler.Collection.UpdateOneAsync(filterDefinition, updateDefinition);
+            
         }
 
-        public async Task Delete(ObjectId id)
+        public async Task<ReplaceOneResult> ReplaceOneAsync(FilterDefinition<T> filterDefinition, T entity)
+        {
+            return await this.BaseConnectionHandler.Collection.ReplaceOneAsync(filterDefinition, entity);
+
+        }
+        
+        public async Task<DeleteResult> DeleteAsync(ObjectId id)
         {
             var filter = Builders<T>.Filter.Eq(x => x.Id, id);
-            await this.BaseConnectionHandler.Collection.DeleteOneAsync(filter);
+            return await this.BaseConnectionHandler.Collection.DeleteOneAsync(filter);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Ninject.Modules;
 using SelfOrdering.ApplicationServices;
 using SelfOrdering.ApplicationServices.Contracts;
+using SelfOrdering.ApplicationServices.Restaurant;
 
 namespace SelfOrdering.Infra.IoC
 {
