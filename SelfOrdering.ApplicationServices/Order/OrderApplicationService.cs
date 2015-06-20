@@ -2,7 +2,7 @@
 using SelfOrdering.Domain.Contracts.Repositories;
 using SelfOrdering.Domain.Contracts.Services;
 
-namespace SelfOrdering.ApplicationServices.Restaurant
+namespace SelfOrdering.ApplicationServices.Order
 {
     public class OrderApplicationService : ApplicationServiceBase<Domain.Order.Order>, IOrderApplicationService
     {

@@ -52,7 +52,7 @@
     <Compile Include="DTO\RestaurantDTO.cs" />
     <Compile Include="Contracts\IApplicationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Restaurant\OrderApplicationService.cs" />
+    <Compile Include="Order\OrderApplicationService.cs" />
     <Compile Include="Restaurant\RestaurantApplicationService.cs" />
   </ItemGroup>
   <ItemGroup>
