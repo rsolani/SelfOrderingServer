@@ -65,9 +65,10 @@
     <Compile Include="Contracts\Services\IRestaurantService.cs" />
     <Compile Include="Contracts\Services\IDomainService.cs" />
     <Compile Include="Customer\Customer.cs" />
+    <Compile Include="Order\OrderCard.cs" />
     <Compile Include="Order\OrderService.cs" />
     <Compile Include="Order\Order.cs" />
-    <Compile Include="Order\OrderItem.cs" />
+    <Compile Include="Restaurant\Address.cs" />
     <Compile Include="Restaurant\MenuItem.cs" />
     <Compile Include="Restaurant\MenuSection.cs" />
     <Compile Include="MongoEntityBase.cs" />
