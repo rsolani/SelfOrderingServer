@@ -5,17 +5,6 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfOrdering.Api", "SelfOrdering.Api\SelfOrdering.Api.csproj", "{431E4D18-2F42-4D3D-A275-E5F7CB88A731}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{64DF2E5C-2A79-4F82-9715-EA05A71C7BAB}"
-	ProjectSection(SolutionItems) = preProject
-		PublishScripts\AzureWebsitePublishModule.psm1 = PublishScripts\AzureWebsitePublishModule.psm1
-		PublishScripts\Publish-WebApplicationWebsite.ps1 = PublishScripts\Publish-WebApplicationWebsite.ps1
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{29414937-CB56-463A-A864-E539C7F734C7}"
-	ProjectSection(SolutionItems) = preProject
-		PublishScripts\Configurations\SelfOrderingApi-WAWS-dev.json = PublishScripts\Configurations\SelfOrderingApi-WAWS-dev.json
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "99 - Other", "99 - Other", "{02B6EC93-6D58-4F8E-8167-8839059798F9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Presentation", "0 - Presentation", "{56B00BD4-DCBC-4DF1-9BF8-098BFBFE0373}"
@@ -93,8 +82,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{431E4D18-2F42-4D3D-A275-E5F7CB88A731} = {97567AD6-F8C1-455C-B4C7-3DB823264750}
-		{64DF2E5C-2A79-4F82-9715-EA05A71C7BAB} = {02B6EC93-6D58-4F8E-8167-8839059798F9}
-		{29414937-CB56-463A-A864-E539C7F734C7} = {64DF2E5C-2A79-4F82-9715-EA05A71C7BAB}
 		{97567AD6-F8C1-455C-B4C7-3DB823264750} = {56B00BD4-DCBC-4DF1-9BF8-098BFBFE0373}
 		{2F07FCC7-0390-4CA4-A296-A0F14BA578CB} = {FA81666C-A3D6-4EF4-93F5-A3ECCC2F837D}
 		{36769174-7442-4CD2-BAB1-3B7492B2B76F} = {32A80AE0-AD5F-4F06-855B-8513C37D857F}
