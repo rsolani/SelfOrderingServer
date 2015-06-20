@@ -5,9 +5,9 @@ namespace SelfOrdering.Domain.Restaurant
 {
     public class Restaurant : MongoEntityBase, IAggregateRoot
     {
-        public string Name { get; private set; }
+        public string Name { get;  set; }
 
-        public int TotalNumberOfTables { get; private set; }
+        public int TotalNumberOfTables { get; set; }
 
         public Menu Menu { get; set; }
 

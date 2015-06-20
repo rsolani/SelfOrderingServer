@@ -2,6 +2,8 @@
 {
     public class RestaurantDTO
     {
+        public string Id { get; set; } 
+         
         public string Name { get; set; }
 
         public int NumberOfTables { get; set; }
