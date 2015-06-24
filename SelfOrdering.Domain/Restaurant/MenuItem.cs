@@ -15,8 +15,7 @@ namespace SelfOrdering.Domain.Restaurant
         public IReadOnlyList<MenuItem> SubItems { get; private set; }
         
         public IReadOnlyList<MenuItem> Suggestions { get; private set; }
-
-
+        
         public byte[] SmallPicture { get; set; }
         public byte[] LargePicture { get; set; }
         

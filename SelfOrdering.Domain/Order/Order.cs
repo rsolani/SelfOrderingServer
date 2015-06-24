@@ -47,11 +47,6 @@ namespace SelfOrdering.Domain.Order
             get { return Cards.Sum(x => x.OrderCardTotal); }
         }
 
-        public int GetCardsCount()
-        {
-            return Cards.Count;
-        }
-
         public void SetOrderAsFinished()
         {
             Status = OrderStatus.Finished;

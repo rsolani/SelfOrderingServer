@@ -3,19 +3,14 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
-using System.Web.Http.ModelBinding;
 using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Serializers;
-using Newtonsoft.Json;
 using SelfOrdering.ApplicationServices.Contracts;
-using SelfOrdering.ApplicationServices.DTO;
-using SelfOrdering.Domain.Restaurant;
 
 namespace SelfOrdering.Api.Controllers
 {
-    public class RestaurantController : ApiController
+    public class RestaurantController : BaseApiController
     {
-        private IRestaurantApplicationService _applicationService;
+        private readonly IRestaurantApplicationService _applicationService;
 
         public RestaurantController(IRestaurantApplicationService applicationService)
         {
@@ -43,23 +38,6 @@ namespace SelfOrdering.Api.Controllers
             try
             {
                 return Request.CreateResponse(HttpStatusCode.OK, await _applicationService.GetById(new ObjectId(id)));
-            }
-            catch (Exception ex)
-            {
-
-                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
-            }
-
-        }
-
-        [HttpPost]
-        public async Task<HttpResponseMessage> Post([FromBody]RestaurantDTO restaurant)
-        {
-            try
-            {
-                var x = restaurant;
-
-                return Request.CreateResponse(HttpStatusCode.Created, x);
             }
             catch (Exception ex)
             {

@@ -6,6 +6,8 @@
          
         public string Name { get; set; }
 
+        public AddressDTO Address { get; set; }
+
         public int NumberOfTables { get; set; }
 
         public MenuDTO Menu { get; set; }

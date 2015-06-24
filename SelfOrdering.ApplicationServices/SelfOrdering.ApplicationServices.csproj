@@ -46,6 +46,7 @@
     <Compile Include="ApplicationServiceBase.cs" />
     <Compile Include="Contracts\IOrderApplicationService.cs" />
     <Compile Include="Contracts\IRestaurantApplicationService.cs" />
+    <Compile Include="DTO\AddressDTO.cs" />
     <Compile Include="DTO\MenuDTO.cs" />
     <Compile Include="DTO\MenuItemDTO.cs" />
     <Compile Include="DTO\MenuSectionDTO.cs" />
