@@ -13,7 +13,7 @@ namespace SelfOrdering.Domain.Order
         public ObjectId TableId { get; private set; }
         public ObjectId CustomerId { get; private set; }
 
-        public IReadOnlyList<MenuItem> Items {get; private set;}
+        public IReadOnlyCollection<MenuItem> Items { get; private set; }
         
         public OrderCard(ObjectId restaurantId, ObjectId tableId, ObjectId customerId)
         {

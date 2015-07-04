@@ -11,7 +11,7 @@ namespace SelfOrdering.ApplicationServices
     public abstract class ApplicationServiceBase<T> : IApplicationService<T> where T : IMongoEntity, IAggregateRoot
     {
 
-        protected IBaseRepository<T> Repository;
+        protected readonly IBaseRepository<T> Repository;
         protected IDomainService<T> DomainService;
 
 

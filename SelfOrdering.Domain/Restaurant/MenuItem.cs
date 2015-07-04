@@ -12,9 +12,9 @@ namespace SelfOrdering.Domain.Restaurant
         public string ShortDescription { get; private set; }
         public string Description { get; set; }
 
-        public IReadOnlyList<MenuItem> SubItems { get; private set; }
-        
-        public IReadOnlyList<MenuItem> Suggestions { get; private set; }
+        public IReadOnlyCollection<MenuItem> SubItems { get; private set; }
+
+        public IReadOnlyCollection<MenuItem> Suggestions { get; private set; }
         
         public byte[] SmallPicture { get; set; }
         public byte[] LargePicture { get; set; }

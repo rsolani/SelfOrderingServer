@@ -7,7 +7,7 @@ namespace SelfOrdering.Domain.Restaurant
     public class Menu : MongoEntityBase
     {
         public string Name { get; set; }
-        public IReadOnlyList<MenuSection> MenuSections { get; private set; }
+        public IReadOnlyCollection<MenuSection> MenuSections { get; private set; }
 
         public Menu()
         {

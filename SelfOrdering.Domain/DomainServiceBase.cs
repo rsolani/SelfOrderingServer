@@ -10,9 +10,9 @@ namespace SelfOrdering.Domain
 {
     public class DomainServiceBase<T> : IDomainService<T> where T : IMongoEntity, IAggregateRoot
     {
-        protected IBaseRepository<T> Repository;
-        protected FilterDefinitionBuilder<T> FilterBuilder;
-        protected UpdateDefinitionBuilder<T> UpdateBuilder;
+        protected readonly IBaseRepository<T> Repository;
+        protected readonly FilterDefinitionBuilder<T> FilterBuilder;
+        protected readonly UpdateDefinitionBuilder<T> UpdateBuilder;
 
         public DomainServiceBase(IBaseRepository<T> repository)
         {

@@ -15,7 +15,7 @@ namespace SelfOrdering.Domain.Restaurant
 
         public Menu Menu { get; set; }
 
-        public IReadOnlyList<Table> Tables { get; private set; }
+        public IReadOnlyCollection<Table> Tables { get; private set; }
 
         public Restaurant(string name, Address address, int totalNumberOfTables)
         {

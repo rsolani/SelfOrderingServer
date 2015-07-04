@@ -21,7 +21,7 @@ namespace SelfOrdering.Domain.Order
 
         public ObjectId CustomerOwnerId { get; private set; }
 
-        public IReadOnlyList<OrderCard> Cards { get; private set; }
+        public IReadOnlyCollection<OrderCard> Cards { get; private set; }
         
         [BsonDateTimeOptions(DateOnly = false, Kind = DateTimeKind.Utc, Representation = BsonType.DateTime)]
         public DateTime OpeningDate { get; private set; }
