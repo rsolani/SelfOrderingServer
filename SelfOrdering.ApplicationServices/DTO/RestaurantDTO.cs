@@ -1,4 +1,6 @@
-﻿namespace SelfOrdering.ApplicationServices.DTO
+﻿using System.Collections.Generic;
+
+namespace SelfOrdering.ApplicationServices.DTO
 {
     public class RestaurantDTO
     {
@@ -9,6 +11,8 @@
         public AddressDTO Address { get; set; }
 
         public int TotalNumberOfTables { get; set; }
+
+        public IReadOnlyList<TableDTO> Tables { get; set; }
 
         public MenuDTO Menu { get; set; }
 

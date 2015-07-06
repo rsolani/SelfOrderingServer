@@ -13,7 +13,8 @@ namespace SelfOrdering.Api.Mapping
                 .ForMember(dest => dest.Menu, src => src.MapFrom(x => x.Menu))
                 .ForMember(dest => dest.Name, src => src.MapFrom(x => x.Name))
                 .ForMember(dest => dest.TotalNumberOfTables, src => src.MapFrom(x => x.TotalNumberOfTables))
-                .ForMember(dest => dest.Address, src => src.MapFrom(x => x.Address));
+                .ForMember(dest => dest.Address, src => src.MapFrom(x => x.Address))
+                .ForMember(dest => dest.Tables, src => src.MapFrom(x => x.Tables));
 
             Mapper.CreateMap<MenuDTO, MenuViewModel>()
                 .ForMember(dest => dest.MenuSections, src => src.MapFrom(x => x.MenuSections))
@@ -45,6 +46,11 @@ namespace SelfOrdering.Api.Mapping
                 .ForMember(dest => dest.StreetNumber, src => src.MapFrom(x => x.StreetNumber))
                 .ForMember(dest => dest.Suburb, src => src.MapFrom(x => x.Suburb))
                 .ForMember(dest => dest.ZipCode, src => src.MapFrom(x => x.ZipCode));
+
+            Mapper.CreateMap<TableDTO, TableViewModel>()
+                .ForMember(dest => dest.Id, src => src.MapFrom(x => x.Id))
+                .ForMember(dest => dest.IsOccupied, src => src.MapFrom(x => x.IsOccupied))
+                .ForMember(dest => dest.Number, src => src.MapFrom(x => x.Number));
 
             Mapper.AssertConfigurationIsValid();
         }

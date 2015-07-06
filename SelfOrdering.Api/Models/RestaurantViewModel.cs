@@ -1,4 +1,6 @@
-﻿namespace SelfOrdering.Api.Models
+﻿using System.Collections.Generic;
+
+namespace SelfOrdering.Api.Models
 {
     public class RestaurantViewModel
     {
@@ -10,11 +12,14 @@
 
         public int TotalNumberOfTables { get; set; }
 
+        public IReadOnlyList<TableViewModel> Tables { get; set; }
+
         public MenuViewModel Menu { get; set; }
 
         public RestaurantViewModel()
         {
             Menu = new MenuViewModel();
+            Tables = new List<TableViewModel>();
         }
     }
     

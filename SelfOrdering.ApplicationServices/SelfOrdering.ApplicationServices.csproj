@@ -62,6 +62,7 @@
     <Compile Include="DTO\MenuSectionDTO.cs" />
     <Compile Include="DTO\RestaurantDTO.cs" />
     <Compile Include="Contracts\IApplicationService.cs" />
+    <Compile Include="DTO\TableDTO.cs" />
     <Compile Include="Mapping\DTOToDomain.cs" />
     <Compile Include="Mapping\DomainToDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
