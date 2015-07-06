@@ -7,10 +7,9 @@ namespace SelfOrdering.Api.Models
         public string Id { get; set; } 
          
         public string Name { get; set; }
+        public int TotalNumberOfTables { get; set; }
 
         public AddressViewModel Address { get; set; }
-
-        public int TotalNumberOfTables { get; set; }
 
         public IReadOnlyList<TableViewModel> Tables { get; set; }
 

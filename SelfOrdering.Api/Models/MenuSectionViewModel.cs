@@ -12,6 +12,7 @@ namespace SelfOrdering.Api.Models
         public MenuSectionViewModel()
         {
             SubSections = new List<MenuSectionViewModel>();
+            Items = new List<MenuItemViewModel>();
         }
     }
 }
