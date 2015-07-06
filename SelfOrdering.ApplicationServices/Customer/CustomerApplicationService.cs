@@ -20,17 +20,15 @@ namespace SelfOrdering.ApplicationServices.Customer
         }
 
 
-        public async Task<CustomerDTO> RegisterOrGetCustomer(CustomerDTO customer)
+        public async Task<CustomerDTO> RegisterOrGetCustomer(CustomerDTO customerDto)
         {
-            var existingCustomer = await Repository.GetByFilterAsync(x => x.Email == customer.Email);
+            var existingCustomer = await Repository.GetByFilterAsync(x => x.Email == customerDto.Email);
 
             if (existingCustomer.FirstOrDefault() == null)
             {
-                var entity = Mapper.Map(customer, new Domain.Customer.Customer(customer.Name, customer.Email));
-
-                await _customerService.RegisterCustomer(entity);
-
-                return Mapper.Map(entity, new CustomerDTO());
+                var newCustomer = Mapper.Map(customerDto, new Domain.Customer.Customer(customerDto.Name, customerDto.Email));
+                await _customerService.RegisterCustomer(newCustomer);
+                return Mapper.Map(newCustomer, new CustomerDTO());
             }
 
             return Mapper.Map(existingCustomer.FirstOrDefault(), new CustomerDTO());

@@ -10,9 +10,6 @@ namespace SelfOrdering.Infra.IoC
     {
         public override void Load()
         {
-            //Repositories
-
-
             //Sevices
             Bind(typeof(IDomainService<>)).To(typeof(DomainServiceBase<>));
             Bind<IRestaurantService>().To<RestaurantService>();

@@ -5,7 +5,7 @@ namespace SelfOrdering.ApplicationServices.Contracts
 {
     public interface ICustomerApplicationService
     {
-        Task<CustomerDTO> RegisterOrGetCustomer(CustomerDTO customer);
+        Task<CustomerDTO> RegisterOrGetCustomer(CustomerDTO customerDto);
         Task<CustomerDTO> GetCustomer(string id);
 
     }
