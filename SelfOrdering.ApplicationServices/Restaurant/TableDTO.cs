@@ -1,4 +1,4 @@
-﻿namespace SelfOrdering.ApplicationServices.DTO
+﻿namespace SelfOrdering.ApplicationServices.Restaurant
 {
     public class TableDTO
     {

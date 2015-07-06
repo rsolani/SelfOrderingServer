@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using AutoMapper;
-using SelfOrdering.Api.Models;
+using SelfOrdering.Api.Models.Restaurant;
 using SelfOrdering.ApplicationServices.Contracts;
 
 namespace SelfOrdering.Api.Controllers

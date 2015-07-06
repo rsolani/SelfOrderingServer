@@ -4,9 +4,9 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using AutoMapper;
-using SelfOrdering.Api.Models;
+using SelfOrdering.Api.Models.Customer;
 using SelfOrdering.ApplicationServices.Contracts;
-using SelfOrdering.ApplicationServices.DTO;
+using SelfOrdering.ApplicationServices.Customer;
 
 namespace SelfOrdering.Api.Controllers
 {

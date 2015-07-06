@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MongoDB.Bson;
-using SelfOrdering.ApplicationServices.DTO;
+using SelfOrdering.ApplicationServices.Customer;
 
 namespace SelfOrdering.ApplicationServices.Mapping
 {

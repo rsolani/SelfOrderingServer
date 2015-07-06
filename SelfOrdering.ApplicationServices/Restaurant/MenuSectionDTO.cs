@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SelfOrdering.ApplicationServices.DTO
+namespace SelfOrdering.ApplicationServices.Restaurant
 {
    
     public class MenuSectionDTO

@@ -1,4 +1,4 @@
-﻿namespace SelfOrdering.Api.Models
+﻿namespace SelfOrdering.Api.Models.Restaurant
 {
     public class TableViewModel
     {

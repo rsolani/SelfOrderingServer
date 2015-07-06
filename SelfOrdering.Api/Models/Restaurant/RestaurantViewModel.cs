@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SelfOrdering.Api.Models
+namespace SelfOrdering.Api.Models.Restaurant
 {
     public class RestaurantViewModel
     {

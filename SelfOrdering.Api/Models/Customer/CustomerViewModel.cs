@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SelfOrdering.Api.Models
+namespace SelfOrdering.Api.Models.Customer
 {
     public class CustomerViewModel
     {

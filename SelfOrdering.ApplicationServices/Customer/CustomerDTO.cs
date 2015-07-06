@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 
-namespace SelfOrdering.ApplicationServices.DTO
+namespace SelfOrdering.ApplicationServices.Customer
 {
     public class CustomerDTO
     {

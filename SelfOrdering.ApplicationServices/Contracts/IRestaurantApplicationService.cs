@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using SelfOrdering.ApplicationServices.DTO;
+using SelfOrdering.ApplicationServices.Restaurant;
 
 namespace SelfOrdering.ApplicationServices.Contracts
 {

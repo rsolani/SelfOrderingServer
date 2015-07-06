@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
-using SelfOrdering.ApplicationServices.DTO;
+using SelfOrdering.ApplicationServices.Customer;
+using SelfOrdering.ApplicationServices.Restaurant;
 
 namespace SelfOrdering.ApplicationServices.Mapping
 {

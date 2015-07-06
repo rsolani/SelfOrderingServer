@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using SelfOrdering.ApplicationServices.DTO;
+using SelfOrdering.ApplicationServices.Customer;
 
 namespace SelfOrdering.ApplicationServices.Contracts
 {

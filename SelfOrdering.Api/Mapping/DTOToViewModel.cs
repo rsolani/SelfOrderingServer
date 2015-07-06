@@ -1,6 +1,9 @@
 ﻿using AutoMapper;
 using SelfOrdering.Api.Models;
-using SelfOrdering.ApplicationServices.DTO;
+using SelfOrdering.Api.Models.Customer;
+using SelfOrdering.Api.Models.Restaurant;
+using SelfOrdering.ApplicationServices.Customer;
+using SelfOrdering.ApplicationServices.Restaurant;
 
 namespace SelfOrdering.Api.Mapping
 {

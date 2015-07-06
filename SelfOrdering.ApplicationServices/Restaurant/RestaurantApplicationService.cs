@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using AutoMapper;
 using MongoDB.Bson;
 using SelfOrdering.ApplicationServices.Contracts;
-using SelfOrdering.ApplicationServices.DTO;
 using SelfOrdering.CrossCutting;
 using SelfOrdering.Domain.Contracts.Repositories;
 using SelfOrdering.Domain.Contracts.Services;
