@@ -38,8 +38,8 @@ namespace SelfOrdering.ApplicationServices.Mapping
             
             Mapper.CreateMap<Domain.Restaurant.Address, AddressDTO>()
                 .ForMember(dest => dest.Country, src => src.MapFrom(x => x.Country))
-                .ForMember(dest => dest.Latitude, src => src.MapFrom(x => x.Latitude))
-                .ForMember(dest => dest.Longitude, src => src.MapFrom(x => x.Longitude))
+                .ForMember(dest => dest.Latitude, src => src.MapFrom(x => x.Location.Coordinates.Latitude))
+                .ForMember(dest => dest.Longitude, src => src.MapFrom(x => x.Location.Coordinates.Longitude))
                 .ForMember(dest => dest.State, src => src.MapFrom(x => x.State))
                 .ForMember(dest => dest.StreetName, src => src.MapFrom(x => x.StreetName))
                 .ForMember(dest => dest.StreetNumber, src => src.MapFrom(x => x.StreetNumber))

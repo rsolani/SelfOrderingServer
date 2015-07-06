@@ -8,5 +8,6 @@ namespace SelfOrdering.ApplicationServices.Contracts
     {
         Task<IReadOnlyList<RestaurantDTO>> GetAll();
         Task<RestaurantDTO> GetById(string id);
+        Task<IEnumerable<RestaurantDTO>> GetNearRestaurants(double longitude, double latitude);
     }
 }

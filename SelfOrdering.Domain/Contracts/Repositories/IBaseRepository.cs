@@ -20,6 +20,7 @@ namespace SelfOrdering.Domain.Contracts.Repositories
         Task<ReplaceOneResult> ReplaceOneAsync(FilterDefinition<T> filterDefinition, T entity);
 
         Task<IReadOnlyList<T>> GetByFilterAsync(Expression<Func<T, bool>> expression);
+        Task<IReadOnlyList<T>> GetByFilterAsync(FilterDefinition<T> filterDefinition);
 
         Task<DeleteResult> DeleteAsync(ObjectId id);
     }

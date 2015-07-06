@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MongoDB.Bson;
+using MongoDB.Driver.GeoJsonObjectModel;
 using SelfOrdering.Domain.Contracts.Repositories;
 using SelfOrdering.Domain.Contracts.Services;
 
@@ -55,7 +56,16 @@ namespace SelfOrdering.Domain.Restaurant
             var filter = FilterBuilder.Eq("Tables._id", table.Id);
             var update = UpdateBuilder.Set("Tables.$", table);
 
-            var r = await Repository.UpdateAsync(filter, update);
+            await Repository.UpdateAsync(filter, update);
+        }
+
+        public async Task<IEnumerable<Restaurant>> GetNearRestaurants(double longitude, double latitude, double maxDistance)
+        {
+            var point = GeoJson.Point(GeoJson.Geographic(longitude, latitude));
+            var filter = FilterBuilder.NearSphere(x => x.Address.Location, point, maxDistance);
+            var nearRestaurants = await Repository.GetByFilterAsync(filter);
+
+            return nearRestaurants;
         }
     }
 }

@@ -22,6 +22,7 @@ namespace SelfOrdering.Infra.Data
         {
             var filter = Builders<T>.Filter.Eq(x => x.Id, id);
             return await this.BaseConnectionHandler.Collection.Find(filter).FirstOrDefaultAsync();
+            
         }
 
         public async Task<IReadOnlyList<T>> GetAllAsync()
@@ -34,7 +35,12 @@ namespace SelfOrdering.Infra.Data
             return await this.BaseConnectionHandler.Collection.Find(expression).ToListAsync();
         }
 
-        
+        public async Task<IReadOnlyList<T>> GetByFilterAsync(FilterDefinition<T> filterDefinition)
+        {
+            return await this.BaseConnectionHandler.Collection.Find(filterDefinition).ToListAsync();
+        }
+
+
         public async Task InsertAsync(T entity)
         {
             await this.BaseConnectionHandler.Collection.InsertOneAsync(entity);

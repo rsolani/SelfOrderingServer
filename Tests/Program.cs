@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Threading;
+using MongoDB.Driver.GeoJsonObjectModel;
 using SelfOrdering.Domain.Restaurant;
 using SelfOrdering.Infra.Data;
 
@@ -34,14 +35,16 @@ namespace Tests
             Address address = new Address
             {
                 Country = "Brasil",
-                Latitude = "-12.31",
-                Longitude = "-33.31",
+                Location = new GeoJsonPoint<GeoJson2DGeographicCoordinates>(new GeoJson2DGeographicCoordinates(-46.736572,-23.5871667)),
                 State = "SP",
                 StreetName = "Avenida das Flores",
                 StreetNumber = "1282",
                 Suburb = "Jardim Arpoador",
                 ZipCode = "05565000"
             };
+
+            //Latitude : -23.5871667
+            //Longitude: -46.736572
 
             var rest = new Restaurant("Reino do Churrasco", address)
             {

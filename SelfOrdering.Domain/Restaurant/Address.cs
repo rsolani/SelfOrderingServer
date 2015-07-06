@@ -1,3 +1,5 @@
+using MongoDB.Driver.GeoJsonObjectModel;
+
 namespace SelfOrdering.Domain.Restaurant
 {
     public class Address
@@ -8,7 +10,7 @@ namespace SelfOrdering.Domain.Restaurant
         public string ZipCode { get; set; }
         public string State { get; set; }
         public string Country { get; set; }
-        public string Latitude { get; set; }
-        public string Longitude { get; set; }
+        public GeoJsonPoint<GeoJson2DGeographicCoordinates> Location { get; set; }
+
     }
 }

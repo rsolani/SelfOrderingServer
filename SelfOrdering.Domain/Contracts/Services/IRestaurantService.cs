@@ -10,5 +10,7 @@ namespace SelfOrdering.Domain.Contracts.Services
         Task<IEnumerable<Table>> GetAllTables(ObjectId restaurantId);
         Task<Table> GetTable(ObjectId restaurantId, ObjectId tableId);
         Task SetTableOccupation(ObjectId restaurantId, ObjectId tableId, bool isOccupied);
+        Task<IEnumerable<Restaurant.Restaurant>> GetNearRestaurants(double longitude, double latitude, double maxDistance = 100000);
+     
     }
 }

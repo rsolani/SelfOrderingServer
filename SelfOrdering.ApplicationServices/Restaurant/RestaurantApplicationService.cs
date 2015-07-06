@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Configuration;
 using System.Threading.Tasks;
 using AutoMapper;
 using MongoDB.Bson;
@@ -30,6 +31,16 @@ namespace SelfOrdering.ApplicationServices.Restaurant
         {
             var entity = await Repository.GetByIdAsync(new ObjectId(id));
             return Mapper.Map(entity, new RestaurantDTO());
+        }
+
+        public async Task<IEnumerable<RestaurantDTO>> GetNearRestaurants(double longitude, double latitude)
+        {
+            var maxDistanceinKilometers = 
+                double.Parse(ConfigurationManager.AppSettings["MaxDistanceToFindPlacesInKilometers"]);
+            var maxDistanceinMeters = maxDistanceinKilometers * 1000; //Transforma em metros
+
+            var nearRestaurants = await _restaurantService.GetNearRestaurants(longitude, latitude, maxDistanceinMeters);
+            return Mapper.Map(nearRestaurants, new List<RestaurantDTO>());
         }
     }
 }
