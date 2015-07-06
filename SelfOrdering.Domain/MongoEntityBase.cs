@@ -4,13 +4,13 @@ using SelfOrdering.Domain.Contracts;
 
 namespace SelfOrdering.Domain
 {
-    public class MongoEntityBase : IMongoEntity
+    public abstract class MongoEntityBase : IMongoEntity
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public ObjectId Id { get; set; }
 
-        public MongoEntityBase()
+        protected MongoEntityBase()
         {
             Id = ObjectId.GenerateNewId();
         }

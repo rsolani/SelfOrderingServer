@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using MongoDB.Bson.Serialization.Attributes;
 using SelfOrdering.Domain.Contracts;
 
 namespace SelfOrdering.Domain.Restaurant
@@ -10,18 +11,21 @@ namespace SelfOrdering.Domain.Restaurant
         public string Name { get;  set; }
 
         public Address Address { get; set; }
-
-        public int TotalNumberOfTables { get; set; }
+        
+        [BsonIgnore]
+        public int TotalNumberOfTables
+        {
+            get { return Tables.Count; }
+        }
 
         public Menu Menu { get; set; }
 
         public IReadOnlyCollection<Table> Tables { get; private set; }
 
-        public Restaurant(string name, Address address, int totalNumberOfTables)
+        public Restaurant(string name, Address address)
         {
             Name = name;
             Address = address;
-            TotalNumberOfTables = totalNumberOfTables;
             Menu = new Menu();
             Tables = new List<Table>();
         }

@@ -24,12 +24,12 @@ namespace SelfOrdering.Infra.Data
             return await this.BaseConnectionHandler.Collection.Find(filter).FirstOrDefaultAsync();
         }
 
-        public async Task<IList<T>> GetAllAsync()
+        public async Task<IReadOnlyList<T>> GetAllAsync()
         {
             return await this.BaseConnectionHandler.Collection.Find(new BsonDocument()).ToListAsync();
         }
 
-        public async Task<IList<T>> GetByFilterAsync(Expression<Func<T, bool>> expression)
+        public async Task<IReadOnlyList<T>> GetByFilterAsync(Expression<Func<T, bool>> expression)
         {
             return await this.BaseConnectionHandler.Collection.Find(expression).ToListAsync();
         }
@@ -43,13 +43,11 @@ namespace SelfOrdering.Infra.Data
         public async Task<UpdateResult> UpdateAsync(FilterDefinition<T> filterDefinition, UpdateDefinition<T> updateDefinition)
         {
             return await this.BaseConnectionHandler.Collection.UpdateOneAsync(filterDefinition, updateDefinition);
-            
         }
 
         public async Task<ReplaceOneResult> ReplaceOneAsync(FilterDefinition<T> filterDefinition, T entity)
         {
             return await this.BaseConnectionHandler.Collection.ReplaceOneAsync(filterDefinition, entity);
-
         }
         
         public async Task<DeleteResult> DeleteAsync(ObjectId id)

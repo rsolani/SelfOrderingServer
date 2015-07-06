@@ -1,6 +1,8 @@
 ﻿namespace SelfOrdering.ApplicationServices.Contracts
 {
-    public interface IOrderApplicationService : IApplicationService<Domain.Order.Order>
+    public interface IOrderApplicationService : IApplicationService
     {
+        
     }
+    
 }

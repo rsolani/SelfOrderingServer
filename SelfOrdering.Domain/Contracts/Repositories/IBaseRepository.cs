@@ -11,7 +11,7 @@ namespace SelfOrdering.Domain.Contracts.Repositories
     {
         Task<T> GetByIdAsync(ObjectId id);
 
-        Task<IList<T>> GetAllAsync();
+        Task<IReadOnlyList<T>> GetAllAsync();
 
         Task InsertAsync(T entity);
 
@@ -19,7 +19,7 @@ namespace SelfOrdering.Domain.Contracts.Repositories
 
         Task<ReplaceOneResult> ReplaceOneAsync(FilterDefinition<T> filterDefinition, T entity);
 
-        Task<IList<T>> GetByFilterAsync(Expression<Func<T, bool>> expression);
+        Task<IReadOnlyList<T>> GetByFilterAsync(Expression<Func<T, bool>> expression);
 
         Task<DeleteResult> DeleteAsync(ObjectId id);
     }

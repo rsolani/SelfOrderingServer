@@ -1,5 +1,6 @@
 ﻿using System.Net.Http.Headers;
 using System.Web.Http;
+using AutoMapper;
 using Microsoft.Owin;
 using Microsoft.Owin.Cors;
 using Newtonsoft.Json;
@@ -10,6 +11,8 @@ using Ninject.Web.WebApi;
 using Ninject.Web.WebApi.OwinHost;
 using Owin;
 using SelfOrdering.Api;
+using SelfOrdering.Api.Mapping;
+using SelfOrdering.ApplicationServices.Mapping;
 
 [assembly: OwinStartup(typeof(Startup))]
 
@@ -24,12 +27,14 @@ namespace SelfOrdering.Api
             ConfigureWebApi(config);
             app.UseCors(CorsOptions.AllowAll);
             app.UseNinjectMiddleware(CreateKernel).UseNinjectWebApi(config);
+            
+            ConfigureAutoMapper();
         }
 
         private static StandardKernel CreateKernel()
         {
             var kernel = new StandardKernel(new NinjectSettings());
-            kernel.Load("SelfOrdering.*.dll");
+            kernel.Load("SelfOrdering.Infra.IoC.dll");
             GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);
             return kernel;
         }
@@ -41,12 +46,20 @@ namespace SelfOrdering.Api
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             config.Formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling = PreserveReferencesHandling.None;
             config.MapHttpAttributeRoutes();
-
+            
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+        }
+
+        private static void ConfigureAutoMapper()
+        {
+            Mapper.Configuration.AddProfile(new DomainToDTO());
+            Mapper.Configuration.AddProfile(new DTOToDomain());
+            Mapper.Configuration.AddProfile(new DTOToViewModel());
+            Mapper.Configuration.AddProfile(new ViewModelToDTO());
         }
     }
 }

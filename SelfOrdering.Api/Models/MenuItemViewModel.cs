@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 
-namespace SelfOrdering.ApplicationServices.DTO
+namespace SelfOrdering.Api.Models
 {
-    public class MenuItemDTO
+    public class MenuItemViewModel
     {
         public string Id { get; set; }
         
         public string Name { get; set; }
         public string ShortDescription { get; set; }
         public string Description { get; set; }
-        public IReadOnlyList<MenuItemDTO> SubItems { get; set; }
-        public IReadOnlyList<MenuItemDTO> Suggestions { get; set; }
+        public IReadOnlyList<MenuItemViewModel> SubItems { get; set; }
+        public IReadOnlyList<MenuItemViewModel> Suggestions { get; set; }
         
         public byte[] SmallPicture { get; set; }
         public byte[] LargePicture { get; set; }
@@ -19,9 +19,9 @@ namespace SelfOrdering.ApplicationServices.DTO
         public bool IsActive { get; set; }
         public bool IsRestrictedByCustomerAge { get; set; }
 
-        public MenuItemDTO()
+        public MenuItemViewModel()
         {
-            Suggestions = new List<MenuItemDTO>();
+            Suggestions = new List<MenuItemViewModel>();
         }
     }
 }

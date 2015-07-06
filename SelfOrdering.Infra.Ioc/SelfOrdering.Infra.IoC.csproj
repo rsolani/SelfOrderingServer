@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationServiceBindings.cs" />
+    <Compile Include="InfrastructureBindings.cs" />
     <Compile Include="DomainBindings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

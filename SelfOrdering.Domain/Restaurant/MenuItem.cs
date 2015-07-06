@@ -22,16 +22,24 @@ namespace SelfOrdering.Domain.Restaurant
         [BsonRepresentation(BsonType.Double)]
         public decimal Price { get; private set; }
 
-        [BsonIgnore]
-        public bool RestrictedByCustomerAge { get; set; }
+        public bool IsActive { get; private set; }
+        
+        public bool IsRestrictedByCustomerAge { get; private set; }
 
-        public MenuItem(string name, string shortDescrption, decimal price)
+        public MenuItem(string name, string shortDescription, decimal price, bool isActive, bool isRestrictedByCustomerAge)
         {
             Name = name;
-            ShortDescription = shortDescrption;
+            ShortDescription = shortDescription;
             Price = price;
+            IsActive = isActive;
+            IsRestrictedByCustomerAge = isRestrictedByCustomerAge;
             SubItems = new List<MenuItem>();
             Suggestions = new List<MenuItem>();
+        }
+
+        public void SetActive(bool isActive)
+        {
+            IsActive = isActive;
         }
 
         public void AddSubItem(MenuItem subItem)

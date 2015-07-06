@@ -8,7 +8,7 @@
 
         public AddressDTO Address { get; set; }
 
-        public int NumberOfTables { get; set; }
+        public int TotalNumberOfTables { get; set; }
 
         public MenuDTO Menu { get; set; }
 
