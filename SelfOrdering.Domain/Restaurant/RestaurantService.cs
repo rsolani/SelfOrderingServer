@@ -49,7 +49,7 @@ namespace SelfOrdering.Domain.Restaurant
             if (tableId == null)
                 throw new ArgumentNullException("SetTableOccupation : tableId null"); 
 
-            var table = await this.GetTable(restaurantId, tableId);
+            var table = await GetTable(restaurantId, tableId);
 
             table.SetOccupation(isOccupied);
             

@@ -36,17 +36,16 @@ namespace SelfOrdering.ApplicationServices.Restaurant
 
         public async Task<IEnumerable<RestaurantDTO>> GetNearRestaurants(double longitude, double latitude)
         {
-            var maxDistanceinKilometers = 
-                double.Parse(ConfigurationManager.AppSettings["MaxDistanceToFindPlacesInKilometers"]);
-            var maxDistanceinMeters = maxDistanceinKilometers * 1000; //Transforma em metros
+            var maxDistanceinMeters =
+                double.Parse(ConfigurationManager.AppSettings["MaxDistanceToFindPlacesInMeters"]);
 
             var nearRestaurants = await _restaurantService.GetNearRestaurants(longitude, latitude, maxDistanceinMeters);
 
-            var dto = Mapper.Map(nearRestaurants, new List<RestaurantDTO>());
+            var foundRestaurants = Mapper.Map(nearRestaurants, new List<RestaurantDTO>());
 
             var distanceHelper = new DistanceHelper();
 
-            foreach (var restaurant in dto)
+            foreach (var restaurant in foundRestaurants)
             {
                 var restaurantPosition = new DistanceHelper.Position();
                 restaurantPosition.Latitude = restaurant.Address.Latitude;
@@ -61,7 +60,7 @@ namespace SelfOrdering.ApplicationServices.Restaurant
                     DistanceHelper.DistanceType.Kilometers);
             }
 
-            return dto;
+            return foundRestaurants;
         }
     }
 }
