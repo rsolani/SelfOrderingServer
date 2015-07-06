@@ -35,7 +35,7 @@ namespace SelfOrdering.ApplicationServices.Mapping
                 .ForMember(dest => dest.Suggestions, src => src.MapFrom(x => x.Suggestions))
                 .ForMember(dest => dest.IsActive, src => src.MapFrom(x => x.IsActive))
                 .ForMember(dest => dest.IsRestrictedByCustomerAge, src => src.MapFrom(x => x.IsRestrictedByCustomerAge));
-            
+
             Mapper.CreateMap<Domain.Restaurant.Address, AddressDTO>()
                 .ForMember(dest => dest.Country, src => src.MapFrom(x => x.Country))
                 .ForMember(dest => dest.Latitude, src => src.MapFrom(x => x.Location.Coordinates.Latitude))
@@ -44,7 +44,8 @@ namespace SelfOrdering.ApplicationServices.Mapping
                 .ForMember(dest => dest.StreetName, src => src.MapFrom(x => x.StreetName))
                 .ForMember(dest => dest.StreetNumber, src => src.MapFrom(x => x.StreetNumber))
                 .ForMember(dest => dest.Suburb, src => src.MapFrom(x => x.Suburb))
-                .ForMember(dest => dest.ZipCode, src => src.MapFrom(x => x.ZipCode));
+                .ForMember(dest => dest.ZipCode, src => src.MapFrom(x => x.ZipCode))
+                .ForMember(dest => dest.DistanceFromUser, src => src.Ignore());
 
             Mapper.CreateMap<Domain.Restaurant.Table, TableDTO>()
                 .ForMember(dest => dest.Id, src => src.MapFrom(x => x.Id))

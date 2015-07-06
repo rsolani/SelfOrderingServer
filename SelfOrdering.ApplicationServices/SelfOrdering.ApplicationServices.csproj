@@ -75,6 +75,10 @@
     <Compile Include="Restaurant\RestaurantApplicationService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SelfOrdering.CrossCutting\SelfOrdering.CrossCutting.csproj">
+      <Project>{6c148c44-df47-4571-9ec8-9b2960d4aa38}</Project>
+      <Name>SelfOrdering.CrossCutting</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SelfOrdering.Domain\SelfOrdering.Domain.csproj">
       <Project>{36769174-7442-4cd2-bab1-3b7492b2b76f}</Project>
       <Name>SelfOrdering.Domain</Name>

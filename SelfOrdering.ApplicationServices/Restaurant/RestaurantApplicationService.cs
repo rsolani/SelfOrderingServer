@@ -5,6 +5,7 @@ using AutoMapper;
 using MongoDB.Bson;
 using SelfOrdering.ApplicationServices.Contracts;
 using SelfOrdering.ApplicationServices.DTO;
+using SelfOrdering.CrossCutting;
 using SelfOrdering.Domain.Contracts.Repositories;
 using SelfOrdering.Domain.Contracts.Services;
 
@@ -40,7 +41,27 @@ namespace SelfOrdering.ApplicationServices.Restaurant
             var maxDistanceinMeters = maxDistanceinKilometers * 1000; //Transforma em metros
 
             var nearRestaurants = await _restaurantService.GetNearRestaurants(longitude, latitude, maxDistanceinMeters);
-            return Mapper.Map(nearRestaurants, new List<RestaurantDTO>());
+
+            var dto = Mapper.Map(nearRestaurants, new List<RestaurantDTO>());
+
+            var distanceHelper = new DistanceHelper();
+
+            foreach (var restaurant in dto)
+            {
+                var restaurantPosition = new DistanceHelper.Position();
+                restaurantPosition.Latitude = restaurant.Address.Latitude;
+                restaurantPosition.Longitude = restaurant.Address.Longitude;
+
+                var customerPosition = new DistanceHelper.Position();
+                customerPosition.Latitude = latitude;
+                customerPosition.Longitude = longitude;
+
+                restaurant.Address.DistanceFromUser = 
+                    distanceHelper.CalculateDistance(customerPosition, restaurantPosition,
+                    DistanceHelper.DistanceType.Kilometers);
+            }
+
+            return dto;
         }
     }
 }
