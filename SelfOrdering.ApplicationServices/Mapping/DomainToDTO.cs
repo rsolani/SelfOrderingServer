@@ -51,7 +51,20 @@ namespace SelfOrdering.ApplicationServices.Mapping
                 .ForMember(dest => dest.Id, src => src.MapFrom(x => x.Id))
                 .ForMember(dest => dest.IsOccupied, src => src.MapFrom(x => x.IsOccupied))
                 .ForMember(dest => dest.Number, src => src.MapFrom(x => x.Number));
-            
+
+
+            Mapper.CreateMap<Domain.Customer.Customer, CustomerDTO>()
+                .ForMember(dest => dest.Id, src => src.MapFrom(x => x.Id))
+                .ForMember(dest => dest.LoginProvider, src => src.MapFrom(x => x.LoginProvider))
+                .ForMember(dest => dest.Name, src => src.MapFrom(x => x.Name))
+                //.ForMember(dest => dest.Orders, src => src.MapFrom(x => x.Orders))
+                .ForMember(dest => dest.Age, src => src.MapFrom(x => x.Age))
+                .ForMember(dest => dest.BirthDate, src => src.MapFrom(x => x.BirthDate))
+                .ForMember(dest => dest.Cpf, src => src.MapFrom(x => x.Cpf))
+                .ForMember(dest => dest.Email, src => src.MapFrom(x => x.Email))
+                .ForMember(dest => dest.UserImageUrl, src => src.MapFrom(x => x.UserImageUrl));
+
+
             Mapper.AssertConfigurationIsValid();
         }
         

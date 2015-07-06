@@ -54,6 +54,17 @@ namespace SelfOrdering.Api.Mapping
                 .ForMember(dest => dest.IsOccupied, src => src.MapFrom(x => x.IsOccupied))
                 .ForMember(dest => dest.Number, src => src.MapFrom(x => x.Number));
 
+            Mapper.CreateMap<CustomerDTO, CustomerViewModel>()
+                .ForMember(dest => dest.Age, src => src.Ignore())
+                .ForMember(dest => dest.DateOfBirth, src => src.MapFrom(x => x.BirthDate))
+                .ForMember(dest => dest.Cpf, src => src.MapFrom(x => x.Cpf))
+                .ForMember(dest => dest.Email, src => src.MapFrom(x => x.Email))
+                .ForMember(dest => dest.Id, src => src.MapFrom(x => x.Id))
+                .ForMember(dest => dest.LoginType, src => src.MapFrom(x => x.LoginProvider))
+                .ForMember(dest => dest.Name, src => src.MapFrom(x => x.Name))
+                .ForMember(dest => dest.UserImageUrl, src => src.MapFrom(x => x.UserImageUrl)); ;
+
+
             Mapper.AssertConfigurationIsValid();
         }
     }

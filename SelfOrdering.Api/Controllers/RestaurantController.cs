@@ -35,7 +35,7 @@ namespace SelfOrdering.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<HttpResponseMessage> Get(string restaurantId)
+        public async Task<HttpResponseMessage> Get([FromUri]string restaurantId)
         {
             try
             {

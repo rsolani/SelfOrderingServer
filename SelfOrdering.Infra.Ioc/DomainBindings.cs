@@ -1,6 +1,7 @@
 ﻿using Ninject.Modules;
 using SelfOrdering.Domain;
 using SelfOrdering.Domain.Contracts.Services;
+using SelfOrdering.Domain.Customer;
 using SelfOrdering.Domain.Restaurant;
 
 namespace SelfOrdering.Infra.IoC
@@ -15,6 +16,7 @@ namespace SelfOrdering.Infra.IoC
             //Sevices
             Bind(typeof(IDomainService<>)).To(typeof(DomainServiceBase<>));
             Bind<IRestaurantService>().To<RestaurantService>();
+            Bind<ICustomerService>().To<CustomerService>();
         }
     }
 }

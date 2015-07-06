@@ -1,4 +1,6 @@
-﻿using SelfOrdering.Domain.Contracts.Repositories;
+﻿using System.Threading.Tasks;
+using MongoDB.Bson;
+using SelfOrdering.Domain.Contracts.Repositories;
 using SelfOrdering.Domain.Contracts.Services;
 
 namespace SelfOrdering.Domain.Customer
@@ -9,7 +11,13 @@ namespace SelfOrdering.Domain.Customer
         public CustomerService(IBaseRepository<Customer> repository)
             : base(repository)
         {
-            
+           
+        }
+
+        public async Task<ObjectId> RegisterCustomer(Customer customer)
+        {
+            await Repository.InsertAsync(customer);
+            return customer.Id;
         }
     }
 }

@@ -14,5 +14,8 @@ namespace SelfOrdering.Domain
         {
             Id = ObjectId.GenerateNewId();
         }
+
+        //public abstract void Validate();
+
     }
 }

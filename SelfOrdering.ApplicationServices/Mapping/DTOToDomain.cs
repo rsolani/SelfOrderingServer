@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using MongoDB.Bson;
+using SelfOrdering.ApplicationServices.DTO;
 
 namespace SelfOrdering.ApplicationServices.Mapping
 {
@@ -6,6 +8,18 @@ namespace SelfOrdering.ApplicationServices.Mapping
     {
         public DTOToDomain()
         {
+
+            Mapper.CreateMap<CustomerDTO, Domain.Customer.Customer>()
+                .ForMember(dest => dest.Id, src => src.MapFrom(x => (string.IsNullOrWhiteSpace(x.Id)) ? ObjectId.GenerateNewId() : new ObjectId(x.Id)))
+                .ForMember(dest => dest.LoginProvider, src => src.MapFrom(x => x.LoginProvider))
+                .ForMember(dest => dest.Name, src => src.MapFrom(x => x.Name))
+                //.ForMember(dest => dest.Orders, src => src.MapFrom(x => x.Orders))
+                .ForMember(dest => dest.Age, src => src.MapFrom(x => x.Age))
+                .ForMember(dest => dest.BirthDate, src => src.MapFrom(x => x.BirthDate))
+                .ForMember(dest => dest.Cpf, src => src.MapFrom(x => x.Cpf))
+                .ForMember(dest => dest.Email, src => src.MapFrom(x => x.Email))
+                .ForMember(dest => dest.UserImageUrl, src => src.MapFrom(x => x.UserImageUrl));            
+
             //Mapper.CreateMap<RestaurantDTO, Domain.Restaurant.Restaurant>()
             //    .ForMember(dest => dest.Id, src => src.MapFrom(x => x.Id))
             //    .ForMember(dest => dest.Menu, src => src.MapFrom(x => x.Menu))

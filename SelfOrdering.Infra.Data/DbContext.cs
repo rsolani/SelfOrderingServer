@@ -1,7 +1,9 @@
 ﻿using System.Configuration;
 using System.Threading.Tasks;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using SelfOrdering.Domain.Contracts;
+using SelfOrdering.Domain.Customer;
 using SelfOrdering.Domain.Restaurant;
 
 namespace SelfOrdering.Infra.Data
@@ -30,6 +32,19 @@ namespace SelfOrdering.Infra.Data
                     restaurantCollection.Indexes.CreateOneAsync(field);
                 });
             }
+
+            if (typeof (T).Name.ToLower() == "customer")
+            {
+                Task.Run(() =>
+                {
+                    var customerCollection = (IMongoCollection<Customer>)Collection;
+                    var field = Builders<Customer>.IndexKeys.Ascending(x => x.Email);
+                    var options = new CreateIndexOptions();
+                    options.Unique = true;
+                    customerCollection.Indexes.CreateOneAsync(field, options);
+                });
+            }
+
         }
     }
 }
