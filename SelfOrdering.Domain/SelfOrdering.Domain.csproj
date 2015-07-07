@@ -55,11 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IAggregateRoot.cs" />
-    <Compile Include="Contracts\Repositories\IOrderRepository.cs" />
-    <Compile Include="Contracts\Repositories\IRestaurantRepository.cs" />
     <Compile Include="Contracts\Repositories\IBaseRepository.cs" />
     <Compile Include="Contracts\IMongoEntity.cs" />
-    <Compile Include="Contracts\Repositories\ICustomerRepository.cs" />
     <Compile Include="Contracts\Services\IOrderService.cs" />
     <Compile Include="Contracts\Services\ICustomerService.cs" />
     <Compile Include="Contracts\Services\IRestaurantService.cs" />

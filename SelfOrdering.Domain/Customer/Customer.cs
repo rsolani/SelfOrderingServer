@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using MongoDB.Bson.Serialization.Conventions;
 using SelfOrdering.Domain.Contracts;
 
 namespace SelfOrdering.Domain.Customer
@@ -23,7 +21,6 @@ namespace SelfOrdering.Domain.Customer
 
         public string UserImageUrl { get; set; }
         
-
         [BsonDateTimeOptions(DateOnly = true, Kind = DateTimeKind.Utc, Representation = BsonType.DateTime)]
         public DateTime BirthDate { get; private set; }
 
