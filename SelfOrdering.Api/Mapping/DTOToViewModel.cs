@@ -48,6 +48,7 @@ namespace SelfOrdering.Api.Mapping
                 .ForMember(dest => dest.StreetName, src => src.MapFrom(x => x.StreetName))
                 .ForMember(dest => dest.StreetNumber, src => src.MapFrom(x => x.StreetNumber))
                 .ForMember(dest => dest.Suburb, src => src.MapFrom(x => x.Suburb))
+                .ForMember(dest => dest.City, src => src.MapFrom(x => x.City))
                 .ForMember(dest => dest.ZipCode, src => src.MapFrom(x => x.ZipCode))
                 .ForMember(dest => dest.DistanceFromUser, src => src.MapFrom(x => x.DistanceFromUser))
                 ;
