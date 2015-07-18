@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MongoDB.Bson;
 using SelfOrdering.ApplicationServices.Customer;
+using SelfOrdering.ApplicationServices.MessageLog;
 
 namespace SelfOrdering.ApplicationServices.Mapping
 {
@@ -8,6 +9,16 @@ namespace SelfOrdering.ApplicationServices.Mapping
     {
         public DTOToDomain()
         {
+            Mapper.CreateMap<MessageHandlerDTO, Domain.MessageLog.MessageHandler>()
+                .ForMember(dest => dest.Id, src => src.Ignore())
+                .ForMember(dest => dest.Duration, src => src.MapFrom(x => x.Duration))
+                .ForMember(dest => dest.HttpStatusCode, src => src.MapFrom(x => x.HttpStatusCode))
+                .ForMember(dest => dest.Ip, src => src.MapFrom(x => x.Ip))
+                .ForMember(dest => dest.Method, src => src.MapFrom(x => x.Method))
+                .ForMember(dest => dest.Parameters, src => src.MapFrom(x => x.Parameters))
+                .ForMember(dest => dest.ResponseContent, src => src.MapFrom(x => x.ResponseContent))
+                .ForMember(dest => dest.RequestContent, src => src.MapFrom(x => x.RequestContent))
+                .ForMember(dest => dest.Verb, src => src.MapFrom(x => x.Verb));
 
             Mapper.CreateMap<CustomerDTO, Domain.Customer.Customer>()
                 .ForMember(dest => dest.Id, src => src.MapFrom(x => (string.IsNullOrWhiteSpace(x.Id)) ? ObjectId.GenerateNewId() : new ObjectId(x.Id)))

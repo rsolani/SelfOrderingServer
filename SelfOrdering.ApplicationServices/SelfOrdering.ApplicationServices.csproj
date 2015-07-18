@@ -63,6 +63,9 @@
     <Compile Include="Contracts\IRestaurantApplicationService.cs" />
     <Compile Include="Customer\CustomerApplicationService.cs" />
     <Compile Include="Contracts\ICustomerApplicationService.cs" />
+    <Compile Include="MessageLog\IMessageHandlerApplicationService.cs" />
+    <Compile Include="MessageLog\MessageHandlerDTO.cs" />
+    <Compile Include="MessageLog\MessageHandlerApplicationService.cs" />
     <Compile Include="Restaurant\AddressDTO.cs" />
     <Compile Include="Customer\CustomerDTO.cs" />
     <Compile Include="Order\OrderDTO.cs" />

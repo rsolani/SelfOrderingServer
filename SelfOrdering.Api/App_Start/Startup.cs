@@ -20,26 +20,42 @@ namespace SelfOrdering.Api
 {
     public class Startup
     {
+        
         public void Configuration(IAppBuilder app)
-        {   
+        {
             HttpConfiguration config = new HttpConfiguration();
-
-            ConfigureWebApi(config);
-            app.UseCors(CorsOptions.AllowAll);
+            
             app.UseNinjectMiddleware(CreateKernel).UseNinjectWebApi(config);
+
+            //config.MessageHandlers.Add(CreateMessageHandler());
             
             ConfigureAutoMapper();
+            
+            ConfigureWebApi(config);
+            
+            app.UseCors(CorsOptions.AllowAll);
         }
 
-        private static StandardKernel CreateKernel()
+        //private MessageHandler CreateMessageHandler()
+        //{
+        //    var service =
+        //        _kernel.Get(typeof(IMessageHandlerApplicationService)) as
+        //            IMessageHandlerApplicationService;
+        //    return new MessageHandler(service);
+        //}
+
+        private StandardKernel CreateKernel()
         {
             var kernel = new StandardKernel(new NinjectSettings());
+            
             kernel.Load("SelfOrdering.Infra.IoC.dll");
+            
             GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);
+            //_kernel = kernel;
             return kernel;
         }
 
-        private static void ConfigureWebApi(HttpConfiguration config)
+        private void ConfigureWebApi(HttpConfiguration config)
         {
             config.Formatters.Remove(config.Formatters.XmlFormatter);
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("application/json"));
@@ -54,7 +70,7 @@ namespace SelfOrdering.Api
             );
         }
 
-        private static void ConfigureAutoMapper()
+        private void ConfigureAutoMapper()
         {
             Mapper.Configuration.AddProfile(new DomainToDTO());
             Mapper.Configuration.AddProfile(new DTOToDomain());
@@ -62,4 +78,5 @@ namespace SelfOrdering.Api
             Mapper.Configuration.AddProfile(new ViewModelToDTO());
         }
     }
+
 }

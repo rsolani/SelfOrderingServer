@@ -51,8 +51,8 @@ namespace SelfOrdering.Api.Controllers
                 
                 if(string.IsNullOrWhiteSpace(customer.Id))
                     return Request.CreateResponse(HttpStatusCode.Created, viewModel);
-                else
-                    return Request.CreateResponse(HttpStatusCode.OK, viewModel);
+                
+                return Request.CreateResponse(HttpStatusCode.OK, viewModel);
             }
             catch (Exception ex)
             {

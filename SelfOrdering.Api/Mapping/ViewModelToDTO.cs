@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
-using SelfOrdering.Api.Models;
 using SelfOrdering.Api.Models.Customer;
+using SelfOrdering.Api.Models.MessageLog;
 using SelfOrdering.ApplicationServices.Customer;
+using SelfOrdering.ApplicationServices.MessageLog;
 
 namespace SelfOrdering.Api.Mapping
 {
@@ -9,6 +10,16 @@ namespace SelfOrdering.Api.Mapping
     {
         public ViewModelToDTO()
         {
+            Mapper.CreateMap<MessageHandlerViewModel, MessageHandlerDTO>()
+                .ForMember(dest => dest.Duration, src => src.MapFrom(x => x.Duration))
+                .ForMember(dest => dest.HttpStatusCode, src => src.MapFrom(x => x.HttpStatusCode))
+                .ForMember(dest => dest.Ip, src => src.MapFrom(x => x.Ip))
+                .ForMember(dest => dest.Method, src => src.MapFrom(x => x.Method))
+                .ForMember(dest => dest.Parameters, src => src.MapFrom(x => x.Parameters))
+                .ForMember(dest => dest.ResponseContent, src => src.MapFrom(x => x.ResponseContent))
+                .ForMember(dest => dest.RequestContent, src => src.MapFrom(x => x.RequestContent))
+                .ForMember(dest => dest.Verb, src => src.MapFrom(x => x.Verb));
+
             Mapper.CreateMap<CustomerViewModel, CustomerDTO>()
                 .ForMember(dest => dest.Age, src => src.Ignore())
                 .ForMember(dest => dest.BirthDate, src => src.MapFrom(x => x.DateOfBirth))

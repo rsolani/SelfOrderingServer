@@ -69,7 +69,11 @@ namespace Tests
 
             //BEBIDAS
             var bebidas = new MenuSection("Bebidas");
-            bebidas.AddItem(new MenuItem("Água Mineral", "Água Mineral Bonafont", 2.50m, true, false));
+
+
+            var refrigerantes = new MenuSection("Água & Refrigerantes");
+            refrigerantes.AddItem(new MenuItem("Água Mineral", "Água Mineral Bonafont", 2.50m, true, false));
+            bebidas.AddSubSection(refrigerantes);
 
             ////CERVEJAS
             var cervejas = new MenuSection("Cervejas");

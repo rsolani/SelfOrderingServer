@@ -62,6 +62,7 @@
     <Compile Include="Contracts\Services\IRestaurantService.cs" />
     <Compile Include="Contracts\Services\IDomainService.cs" />
     <Compile Include="Customer\Customer.cs" />
+    <Compile Include="MessageLog\MessageHandler.cs" />
     <Compile Include="Order\OrderCard.cs" />
     <Compile Include="Order\OrderService.cs" />
     <Compile Include="Order\Order.cs" />
