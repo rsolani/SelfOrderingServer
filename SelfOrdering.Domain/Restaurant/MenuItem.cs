@@ -73,5 +73,10 @@ namespace SelfOrdering.Domain.Restaurant
 
             ((IList)Suggestions).Remove(suggestion);
         }
+
+        public override void Validate()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

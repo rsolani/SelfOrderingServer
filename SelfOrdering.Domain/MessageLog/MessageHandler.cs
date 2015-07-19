@@ -20,5 +20,9 @@ namespace SelfOrdering.Domain.MessageLog
         public string ResponseContent { get; set; }
         public string RequestContent { get; set; }
 
+        public override void Validate()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

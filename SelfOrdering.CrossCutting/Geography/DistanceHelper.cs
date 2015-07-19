@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SelfOrdering.CrossCutting
+namespace SelfOrdering.CrossCutting.Geography
 {
     public class DistanceHelper
     {

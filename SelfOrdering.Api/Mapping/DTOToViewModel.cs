@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using SelfOrdering.Api.Models;
 using SelfOrdering.Api.Models.Customer;
 using SelfOrdering.Api.Models.Restaurant;
 using SelfOrdering.ApplicationServices.Customer;
@@ -17,7 +16,14 @@ namespace SelfOrdering.Api.Mapping
                 .ForMember(dest => dest.Name, src => src.MapFrom(x => x.Name))
                 .ForMember(dest => dest.TotalNumberOfTables, src => src.MapFrom(x => x.TotalNumberOfTables))
                 .ForMember(dest => dest.Address, src => src.MapFrom(x => x.Address))
+                .ForMember(dest => dest.Type, src => src.MapFrom(x => x.Type))
                 .ForMember(dest => dest.Tables, src => src.MapFrom(x => x.Tables));
+
+            Mapper.CreateMap<RestaurantDTO, RestaurantListViewModel>()
+                .ForMember(dest => dest.Id, src => src.MapFrom(x => x.Id))
+                .ForMember(dest => dest.Name, src => src.MapFrom(x => x.Name))
+                .ForMember(dest => dest.Address, src => src.MapFrom(x => x.Address))
+                .ForMember(dest => dest.Type, src => src.MapFrom(x => x.Type));
 
             Mapper.CreateMap<MenuDTO, MenuViewModel>()
                 .ForMember(dest => dest.MenuSections, src => src.MapFrom(x => x.MenuSections))

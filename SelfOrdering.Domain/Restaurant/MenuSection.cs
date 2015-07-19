@@ -50,6 +50,10 @@ namespace SelfOrdering.Domain.Restaurant
         }
 
 
+        public override void Validate()
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

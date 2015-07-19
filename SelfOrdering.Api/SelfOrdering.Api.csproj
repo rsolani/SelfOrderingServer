@@ -193,6 +193,7 @@
     <Compile Include="Models\Restaurant\MenuViewModel.cs" />
     <Compile Include="Models\Restaurant\MenuItemViewModel.cs" />
     <Compile Include="Models\Restaurant\MenuSectionViewModel.cs" />
+    <Compile Include="Models\Restaurant\RestaurantListModel.cs" />
     <Compile Include="Models\Restaurant\RestaurantViewModel.cs" />
     <Compile Include="Models\Restaurant\TableViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

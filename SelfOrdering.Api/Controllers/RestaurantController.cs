@@ -18,14 +18,14 @@ namespace SelfOrdering.Api.Controllers
         {
             _applicationService = applicationService;
         }
-        
+
         [HttpGet]
         public async Task<HttpResponseMessage> Get()
         {
             try
             {
                 var dto = await _applicationService.GetAll();
-                var viewModel = Mapper.Map(dto, new List<RestaurantViewModel>());
+                var viewModel = Mapper.Map(dto, new List<RestaurantListViewModel>());
                 return Request.CreateResponse(HttpStatusCode.OK, viewModel);
             }
             catch (Exception ex)
@@ -35,6 +35,7 @@ namespace SelfOrdering.Api.Controllers
         }
 
         [HttpGet]
+        [Route("api/restaurant/{restaurantId}")]
         public async Task<HttpResponseMessage> Get([FromUri]string restaurantId)
         {
             try
@@ -56,7 +57,7 @@ namespace SelfOrdering.Api.Controllers
             try
             {
                 var dto = await _applicationService.GetNearRestaurants(longitude, latitude);
-                var viewModel = Mapper.Map(dto, new List<RestaurantViewModel>());
+                var viewModel = Mapper.Map(dto, new List<RestaurantListViewModel>());
 
                 return Request.CreateResponse(HttpStatusCode.OK, viewModel);
             }

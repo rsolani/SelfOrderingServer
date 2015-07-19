@@ -46,7 +46,7 @@ namespace Tests
             //Latitude : -23.5871667
             //Longitude: -46.736572
 
-            var rest = new Restaurant("Reino do Churrasco", address)
+            var rest = new Restaurant("Reino do Churrasco", "Churrasco", address)
             {
                 Menu = new Menu {Name = "Cardápio do Reino do Churrasco"}
             };

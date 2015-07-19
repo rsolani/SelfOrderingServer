@@ -38,5 +38,10 @@ namespace SelfOrdering.Domain.Order
         {
             get { return Items.Sum(x => x.Price); }
         }
+
+        public override void Validate()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

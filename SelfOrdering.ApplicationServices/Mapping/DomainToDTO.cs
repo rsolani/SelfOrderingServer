@@ -14,6 +14,7 @@ namespace SelfOrdering.ApplicationServices.Mapping
                 .ForMember(dest => dest.Name, src => src.MapFrom(x => x.Name))
                 .ForMember(dest => dest.TotalNumberOfTables, src => src.MapFrom(x => x.TotalNumberOfTables))
                 .ForMember(dest => dest.Address, src => src.MapFrom(x => x.Address))
+                .ForMember(dest => dest.Type, src => src.MapFrom(x => x.Type))
                 .ForMember(dest => dest.Tables, src => src.MapFrom(x => x.Tables));
 
             Mapper.CreateMap<Domain.Restaurant.Menu, MenuDTO>()

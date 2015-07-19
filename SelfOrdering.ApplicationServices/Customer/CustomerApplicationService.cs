@@ -25,7 +25,7 @@ namespace SelfOrdering.ApplicationServices.Customer
 
             if (existingCustomer.FirstOrDefault() == null)
             {
-                var newCustomer = Mapper.Map(customerDto, new Domain.Customer.Customer(customerDto.Name, customerDto.Email));
+                var newCustomer = Mapper.Map(customerDto, new Domain.Customer.Customer(customerDto.Name, customerDto.Email, customerDto.Cpf));
                 await _customerService.RegisterCustomer(newCustomer);
                 return Mapper.Map(newCustomer, new CustomerDTO());
             }

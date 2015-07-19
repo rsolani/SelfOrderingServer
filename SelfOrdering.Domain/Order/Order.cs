@@ -42,6 +42,12 @@ namespace SelfOrdering.Domain.Order
 
             Cards = new List<OrderCard>();
         }
+
+        public override void Validate()
+        {
+
+        }
+
         public decimal OrderTotal
         {
             get { return Cards.Sum(x => x.OrderCardTotal); }
@@ -67,6 +73,7 @@ namespace SelfOrdering.Domain.Order
 
             ((IList)Cards).Remove(card);
         }
+
 
     }
 }

@@ -29,5 +29,10 @@ namespace SelfOrdering.Domain.Restaurant
 
             ((IList)MenuSections).Remove(section);
         }
+
+        public override void Validate()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

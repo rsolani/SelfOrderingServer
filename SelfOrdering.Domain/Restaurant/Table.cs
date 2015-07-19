@@ -15,5 +15,10 @@
         {
             IsOccupied = isOccupied;
         }
+
+        public override void Validate()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

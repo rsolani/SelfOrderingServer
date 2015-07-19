@@ -4,12 +4,13 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using SelfOrdering.Domain;
 using SelfOrdering.Domain.Contracts;
 using SelfOrdering.Domain.Contracts.Repositories;
 
 namespace SelfOrdering.Infra.Data
 {
-    public  class BaseRepository<T> : IBaseRepository<T> where T : IMongoEntity, IAggregateRoot
+    public  class BaseRepository<T> : IBaseRepository<T> where T : MongoEntityBase, IAggregateRoot
     {
         protected readonly DbContext<T> BaseConnectionHandler;
         
@@ -43,11 +44,13 @@ namespace SelfOrdering.Infra.Data
 
         public async Task InsertAsync(T entity)
         {
+            entity.Created = DateTime.Now;
             await this.BaseConnectionHandler.Collection.InsertOneAsync(entity);
         }
 
         public async Task<UpdateResult> UpdateAsync(FilterDefinition<T> filterDefinition, UpdateDefinition<T> updateDefinition)
         {
+            updateDefinition.AddToSet("Updated", DateTime.Now);
             return await this.BaseConnectionHandler.Collection.UpdateOneAsync(filterDefinition, updateDefinition);
         }
 

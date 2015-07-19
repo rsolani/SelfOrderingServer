@@ -19,7 +19,9 @@ namespace SelfOrdering.ApplicationServices.Mapping
                 .ForMember(dest => dest.ResponseContent, src => src.MapFrom(x => x.ResponseContent))
                 .ForMember(dest => dest.RequestContent, src => src.MapFrom(x => x.RequestContent))
                 .ForMember(dest => dest.RequestDateTime, src => src.MapFrom(x => x.RequestDateTime))
-                .ForMember(dest => dest.Verb, src => src.MapFrom(x => x.Verb));
+                .ForMember(dest => dest.Verb, src => src.MapFrom(x => x.Verb))
+                .ForMember(dest => dest.Created, src => src.Ignore())
+                .ForMember(dest => dest.Updated, src => src.Ignore());
 
             Mapper.CreateMap<CustomerDTO, Domain.Customer.Customer>()
                 .ForMember(dest => dest.Id, src => src.MapFrom(x => (string.IsNullOrWhiteSpace(x.Id)) ? ObjectId.GenerateNewId() : new ObjectId(x.Id)))
@@ -30,7 +32,9 @@ namespace SelfOrdering.ApplicationServices.Mapping
                 .ForMember(dest => dest.BirthDate, src => src.MapFrom(x => x.BirthDate))
                 .ForMember(dest => dest.Cpf, src => src.MapFrom(x => x.Cpf))
                 .ForMember(dest => dest.Email, src => src.MapFrom(x => x.Email))
-                .ForMember(dest => dest.UserImageUrl, src => src.MapFrom(x => x.UserImageUrl));            
+                .ForMember(dest => dest.UserImageUrl, src => src.MapFrom(x => x.UserImageUrl))
+                .ForMember(dest => dest.Created, src => src.Ignore())
+                .ForMember(dest => dest.Updated, src => src.Ignore());   
 
             //Mapper.CreateMap<RestaurantDTO, Domain.Restaurant.Restaurant>()
             //    .ForMember(dest => dest.Id, src => src.MapFrom(x => x.Id))
