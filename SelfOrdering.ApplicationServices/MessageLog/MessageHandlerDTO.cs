@@ -4,6 +4,8 @@ namespace SelfOrdering.ApplicationServices.MessageLog
 {
     public class MessageHandlerDTO
     {
+        public DateTime RequestDateTime { get; set; }
+
         public TimeSpan Duration { get; set; }
         public string Method { get; set; }
         public string Parameters { get; set; }

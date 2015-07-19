@@ -10,6 +10,7 @@ namespace SelfOrdering.Infra.IoC
         {
             //Repositories
             Bind(typeof(IBaseRepository<>)).To(typeof(BaseRepository<>));
+
         }
     }
 }

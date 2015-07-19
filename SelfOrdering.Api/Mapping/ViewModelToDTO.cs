@@ -18,6 +18,7 @@ namespace SelfOrdering.Api.Mapping
                 .ForMember(dest => dest.Parameters, src => src.MapFrom(x => x.Parameters))
                 .ForMember(dest => dest.ResponseContent, src => src.MapFrom(x => x.ResponseContent))
                 .ForMember(dest => dest.RequestContent, src => src.MapFrom(x => x.RequestContent))
+                .ForMember(dest => dest.RequestDateTime, src => src.MapFrom(x => x.RequestDateTime))
                 .ForMember(dest => dest.Verb, src => src.MapFrom(x => x.Verb));
 
             Mapper.CreateMap<CustomerViewModel, CustomerDTO>()

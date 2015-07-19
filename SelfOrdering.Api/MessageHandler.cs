@@ -10,7 +10,9 @@ using SelfOrdering.ApplicationServices.MessageLog;
 
 namespace SelfOrdering.Api
 {
-    public class MessageHandler : DelegatingHandler
+    public interface IMessageHandler { }
+
+    public class MessageHandler : DelegatingHandler, IMessageHandler
     {
         private readonly IMessageHandlerApplicationService _service;
 
@@ -25,13 +27,16 @@ namespace SelfOrdering.Api
             {
                 var requestDate = DateTime.Now;
 
+                var requestContent = request.Content.ReadAsByteArrayAsync().Result;
+                
                 var message = new MessageHandlerViewModel
                 {
+                    RequestDateTime = requestDate,
                     Method = request.RequestUri.AbsolutePath,
                     Parameters = request.RequestUri.Query,
                     Verb = request.Method.Method,
                     Ip = HttpContext.Current.Request.UserHostAddress,
-                    RequestContent = request.Content.ToString()
+                    RequestContent = Encoding.UTF8.GetString(requestContent, 0, requestContent.Length)
                 };
 
                 return await Task.Run(async () => await base.SendAsync(request, cancellationToken), cancellationToken)

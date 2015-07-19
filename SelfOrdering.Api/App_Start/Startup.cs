@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Headers;
+﻿using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Web.Http;
 using AutoMapper;
 using Microsoft.Owin;
@@ -19,16 +20,13 @@ using SelfOrdering.ApplicationServices.Mapping;
 namespace SelfOrdering.Api
 {
     public class Startup
-    {
-        
+    {   
         public void Configuration(IAppBuilder app)
         {
             HttpConfiguration config = new HttpConfiguration();
             
-            app.UseNinjectMiddleware(CreateKernel).UseNinjectWebApi(config);
+            app.UseNinjectMiddleware(() => CreateKernel(config)).UseNinjectWebApi(config);
 
-            //config.MessageHandlers.Add(CreateMessageHandler());
-            
             ConfigureAutoMapper();
             
             ConfigureWebApi(config);
@@ -36,22 +34,16 @@ namespace SelfOrdering.Api
             app.UseCors(CorsOptions.AllowAll);
         }
 
-        //private MessageHandler CreateMessageHandler()
-        //{
-        //    var service =
-        //        _kernel.Get(typeof(IMessageHandlerApplicationService)) as
-        //            IMessageHandlerApplicationService;
-        //    return new MessageHandler(service);
-        //}
-
-        private StandardKernel CreateKernel()
+        private StandardKernel CreateKernel(HttpConfiguration config)
         {
             var kernel = new StandardKernel(new NinjectSettings());
             
             kernel.Load("SelfOrdering.Infra.IoC.dll");
             
             GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);
-            //_kernel = kernel;
+
+            config.MessageHandlers.Add(kernel.Get(typeof(MessageHandler)) as DelegatingHandler);
+
             return kernel;
         }
 

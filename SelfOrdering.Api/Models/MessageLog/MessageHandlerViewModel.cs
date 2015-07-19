@@ -3,6 +3,7 @@ namespace SelfOrdering.Api.Models.MessageLog
 {
     public class MessageHandlerViewModel
     {
+        public DateTime RequestDateTime { get; set; }
         public TimeSpan Duration { get; set; }
         public string Method { get; set; }
         public string Parameters { get; set; }
