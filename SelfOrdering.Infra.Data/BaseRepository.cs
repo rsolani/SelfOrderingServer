@@ -50,7 +50,7 @@ namespace SelfOrdering.Infra.Data
 
         public async Task<UpdateResult> UpdateAsync(FilterDefinition<T> filterDefinition, UpdateDefinition<T> updateDefinition)
         {
-            updateDefinition.AddToSet("Updated", DateTime.Now);
+            updateDefinition.CurrentDate("Updated");
             return await this.BaseConnectionHandler.Collection.UpdateOneAsync(filterDefinition, updateDefinition);
         }
 

@@ -1,4 +1,6 @@
-﻿namespace SelfOrdering.Domain.Restaurant
+﻿using System;
+
+namespace SelfOrdering.Domain.Restaurant
 {
     public class Table : MongoEntityBase
     {
@@ -14,6 +16,7 @@
         public void SetOccupation(bool isOccupied)
         {
             IsOccupied = isOccupied;
+            Updated = DateTime.Now;
         }
 
         public override void Validate()

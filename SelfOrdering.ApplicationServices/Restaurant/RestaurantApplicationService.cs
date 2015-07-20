@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Configuration;
-using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using MongoDB.Bson;
 using SelfOrdering.ApplicationServices.Contracts;
-using SelfOrdering.CrossCutting;
 using SelfOrdering.CrossCutting.Geography;
 using SelfOrdering.Domain.Contracts.Repositories;
 using SelfOrdering.Domain.Contracts.Services;
@@ -26,6 +24,7 @@ namespace SelfOrdering.ApplicationServices.Restaurant
         public async Task<IReadOnlyList<RestaurantDTO>> GetAll()
         {
             var entity = await Repository.GetAllAsync();
+            //await _restaurantService.SetTableOccupation(new ObjectId("55ac3bfb5775cb141c653b69"), new ObjectId("55ac3bfb5775cb141c653b7c"), false);
             return Mapper.Map(entity, new List<RestaurantDTO>());
         }
         public async Task<RestaurantDTO> GetById(string id)

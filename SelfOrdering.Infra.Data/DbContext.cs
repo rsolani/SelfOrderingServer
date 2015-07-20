@@ -1,6 +1,5 @@
 ﻿using System.Configuration;
 using System.Threading.Tasks;
-using MongoDB.Bson;
 using MongoDB.Driver;
 using SelfOrdering.Domain.Contracts;
 using SelfOrdering.Domain.Customer;

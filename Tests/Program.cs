@@ -16,6 +16,7 @@ namespace Tests
             Insert();
             
             resetEvent.WaitOne(); // Blocks until "set"
+
         }
 
         static async void Insert()
@@ -37,6 +38,7 @@ namespace Tests
                 Country = "Brasil",
                 Location = new GeoJsonPoint<GeoJson2DGeographicCoordinates>(new GeoJson2DGeographicCoordinates(-46.736572,-23.5871667)),
                 State = "SP",
+                City = "São Paulo",
                 StreetName = "Avenida das Flores",
                 StreetNumber = "1282",
                 Suburb = "Jardim Arpoador",

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-
+﻿
 namespace SelfOrdering.Api.Models.Restaurant
 {
     public class RestaurantListViewModel
